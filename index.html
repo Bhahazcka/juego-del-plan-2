@@ -117,4 +117,20 @@ function ex(n,miss){cur=L.length;if(n>=X.length)return end(miss);V(`<small>Prueb
 function end(miss){const n=X.length-miss.length,p=Math.round(n/X.length*100),pass=p>=75;CT=[S.n,n,X.length,p,S.xp,new Date().toLocaleDateString("es-BO")];if(pass){fan();boom(250)}
 V(`<div class="card ${pass?'cert':''}" style="text-align:center"><div class="big">${pass?'🏅':'💪'}</div><h2>${pass?'¡Aprobado, '+S.n+'!':'Casi lo logras, '+S.n}</h2><p>Prueba final: <b>${n} de ${X.length}</b> (${p}%) · XP total: <b>${S.xp}</b></p><p>${pass?'Entendiste el plan HGW: 6 bonos, rangos y premios. Certificado de dominio del Plan de Compensación.<br><small>'+new Date().toLocaleDateString('es-BO')+'</small>':'Repasa estos niveles y vuelve a intentarlo:'}</p>${miss.length?miss.map(k=>`<button class="ch" onclick="cur=${k};si=0;lv()">${L[k].i} ${L[k].t}</button>`).join(''):''}${pass?'<img id="pv" alt="Certificado" style="max-width:100%;border-radius:12px;margin-top:8px">':''}<div class="row"><button class="bt g" onclick="cur=0;si=0;S={n:S.n,xp:0,st:0,max:0,res:{}};intro()">Jugar de nuevo</button>${pass?'<button class="bt" id="cp" onclick="cop()">Copiar certificado</button>':'<button class="bt" onclick="ex(0,[])">Repetir prueba</button>'}</div></div>`);if(pass)mkP().then(b=>{$('#pv').src=URL.createObjectURL(b)})}
 intro();
-</script></body></html>
+</script>
+
+<!-- ===== BOTÓN VOLVER A INICIO (Vende y Afilia) ===== -->
+<a class="hgw-back" href="https://vende-y-afilia.vercel.app/">🏠 VOLVER A INICIO</a>
+<style>
+.hgw-back{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:99999;
+  display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;white-space:nowrap;text-decoration:none;
+  font:600 .9rem/1 Fredoka,Nunito,system-ui,sans-serif;letter-spacing:.06em;color:#fff;
+  background:linear-gradient(135deg,#1F7638,#518F31);box-shadow:0 4px 0 #14502a,0 10px 24px -6px rgba(31,118,56,.6);
+  transition:transform .25s,box-shadow .25s}
+.hgw-back:hover{transform:translateX(-50%) translateY(-3px)}
+.hgw-back:active{transform:translateX(-50%) translateY(2px);box-shadow:none}
+/* Espacio extra abajo para que el botón flotante no tape los botones del juego */
+main{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+@media print{.hgw-back{display:none}}
+</style>
+</body></html>
